@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FaRegQuestionCircle, FaUser } from "react-icons/fa";
@@ -19,25 +19,12 @@ interface NavMenuItem {
 
 export default function Navbar()  {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const navMenuList: NavMenuItem[] = [
     { id: 1, menuItem: "Business", href: "/", hasDropdown: true },
     { id: 2, menuItem: "Products", href: "/", hasDropdown: true },
     { id: 3, menuItem: "About Us", href: "/" },
   ];
-
-  // Handle scroll event to toggle sticky state
-  const handleScroll = (): void => {
-    setIsScroll(window.scrollY > 0);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <>
@@ -65,12 +52,8 @@ export default function Navbar()  {
       </div>
 
       <div
-        className={`text-white transition-all duration-300 
-      ${
-        isScroll || isMenuOpen
-          ? "fixed top-0 left-0 w-full h-16 z-50 shadow-gray-700 bg-[#949494cc] shadow-md transform translate-y-0"
-          : "relative transform translate-y-0"
-      }`}
+        className="text-white transition-all duration-300 border-b-2 border-gray-400" 
+    
       >
         <div className="container">
           <div className="flex justify-between items-center py-4 w-full">

@@ -52,7 +52,7 @@ export default function Login() {
 
   return (
     <div className="w-full bg-white rounded-2xl lg:p-8 p-4">
-      <h2 className="text-[#0F0F0F] text-3xl font-medium text-center capitalize">
+      <h2 className="text-[#0F0F0F] text-2xl font-bold text-center capitalize">
         Drukland.de
       </h2>
       <h3 className="text-2xl font-regular text-center text-[#0F0F0F] mt-3">
@@ -87,7 +87,7 @@ export default function Login() {
             type="email"
             aria-describedby="emailError"
             {...register("email", { required: "Email is required" })}
-            className={`block w-full py-1 border-b outline-none border-black ${
+            className={`block w-full p-2 border-b outline-none border-black ${
               errors.email ? "border-red-500" : "border-gray-300"
             }`}
           />
@@ -111,7 +111,7 @@ export default function Login() {
             type="password"
             aria-describedby="passwordError"
             {...register("password", { required: "Password is required" })}
-            className={`block w-full py-1 border-b outline-none border-black ${
+            className={`block w-full p-2 border-b outline-none border-black ${
               errors.password ? "border-red-500" : "border-gray-300"
             }`}
           />

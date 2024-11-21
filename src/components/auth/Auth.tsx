@@ -55,7 +55,7 @@ export default function Login() {
       <h2 className="text-[#0F0F0F] text-2xl font-bold text-center capitalize">
         Drukland.de
       </h2>
-      <h3 className="text-2xl font-regular text-center text-[#0F0F0F] mt-3">
+      <h3 className="text-base font-semibold text-center text-[#0F0F0F] mt-3">
         Sign In to your account
       </h3>
       <p className="text-[#292929] text-sm font-regular text-center">

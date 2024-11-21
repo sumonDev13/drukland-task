@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
@@ -12,6 +13,8 @@ type Inputs = {
 };
 
 export default function Login() {
+  const [showCredentialsError, setShowCredentialsError] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,6 +22,9 @@ export default function Login() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    // Reset credentials error before API call
+    setShowCredentialsError(false);
+
     try {
       const res = await fetch("https://social-login.druckland.de/api/v1/user/signin", {
         method: "POST",
@@ -31,10 +37,15 @@ export default function Login() {
       if (res.ok) {
         const result = await res.json();
         console.log(result);
+        // Handle successful login (e.g., redirect)
       } else {
+        // Show credentials error for failed login attempts
+        setShowCredentialsError(true);
         console.error("Failed to login:", res.statusText);
       }
     } catch (error) {
+      // Show credentials error for network or other errors
+      setShowCredentialsError(true);
       console.error("Error during login:", error);
     }
   };
@@ -48,16 +59,19 @@ export default function Login() {
         Sign In to your account
       </h3>
       <p className="text-[#292929] text-sm font-regular text-center">
-        {"Don’t"} have an account?{" "}
+        {"Don't"} have an account?{" "}
         <Link href="/" className="text-black font-medium">
           Register
         </Link>
       </p>
 
-      <div className="flex justify-center gap-1 items-center mt-5">
-        <MdError />
-        <p className="text-[12px]">Unknown email address. Try again!</p>
-      </div>
+      {/* Credentials Error Message */}
+      {showCredentialsError && (
+        <div className="flex justify-center gap-1 items-center mt-5">
+          <MdError />
+          <p className="text-[12px]">Unknown email address. Try again!</p>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
         {/* Email Input */}

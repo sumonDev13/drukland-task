@@ -60,7 +60,7 @@ export default function Navbar()  {
             <div>
               <Link
                 href="/"
-                className="text-black text-4xl semibold-text capitalize"
+                className="text-black text-4xl font-bold capitalize"
               >
                 Drukland.de
               </Link>

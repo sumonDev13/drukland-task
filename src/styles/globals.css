@@ -13,57 +13,10 @@ a {
 }
 
 body {
-  font-family: "Georama", sans-serif !important;
+  font-family: var(--font-clash-display);
   background-color: #F1F1F1; 
   overflow-x: hidden; 
 }
 
 
 
-/* set font */
-@font-face {
-  font-family: "ClashDisplayLight";
-  src: url("/font/ClashDisplay-Light.otf");
-  font-style: normal;
-}
-@font-face {
-  font-family: "ClashDisplayMedium";
-  src: url("/font/ClashDisplay-Medium.otf");
-  font-style: normal;
-}
-@font-face {
-  font-family: "ClashDisplayRegular";
-  src: url("/font/ClashDisplay-Regular.otf");
-  font-style: normal;
-}
-@font-face {
-  font-family: "ClashDisplaySemibold";
-  src: url("/font/ClashDisplay-Semibold.otf");
-  font-style: normal;
-}
-@font-face {
-  font-family: "ClashDisplayBold";
-  src: url("/font/ClashDisplay-Bold.otf");
-  font-style: normal;
-}
-
-/* Fonts family class */
-.light-text {
-  font-family: "ClashDisplayLight", sans-serif;
-}
-
-.regular-text {
-  font-family: "ClashDisplayRegular", sans-serif;
-}
-
-.medium-text {
-  font-family: "ClashDisplayMedium", sans-serif;
-}
-
-.semibold-text {
-  font-family: "ClashDisplaySemibold", sans-serif;
-}
-
-.bold-text {
-  font-family: "ClashDisplayBold", sans-serif;
-}
